@@ -1,0 +1,33 @@
+.search {
+	position: relative;
+
+	width: 400px;
+}
+
+.searchSvg {
+	position: absolute;
+	top: 18px;
+	left: 15px;
+	width: 20px;
+	height: 20px;
+}
+
+.closeSvg {
+	position: absolute;
+	top: 14px;
+	right: 15px;
+	width: 25px;
+	height: 25px;
+}
+
+.input {
+	width: 100%;
+	padding: 10px 20px 10px 40px;
+	font-size: 20px;
+	border-radius: 10px;
+	border: 3px solid rgba(0, 0, 0, 0.2);
+}
+
+.input:focus {
+	border: 3px solid rgba(0, 0, 0, 0.8);
+}

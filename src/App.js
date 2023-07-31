@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useState } from "react"
 import { Route, Routes } from 'react-router'
 import Header from './components/Header/Header'
 import Cart from './pages/Cart'
@@ -15,6 +15,7 @@ const App = () => {
       <Header />
       <div className="content">
         <div className="container">
+
 
           <Routes>
             <Route path='/' element={<HomePage />} />
