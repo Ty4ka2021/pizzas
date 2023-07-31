@@ -46,7 +46,6 @@ const HomePage = () => {
 
 		axios.get('https://64c232d1eb7fd5d6ebcf68ff.mockapi.io/items?${category}&sortBy=${sortBy}&order=${order}')
 			.then(res => {
-				console.log(res)
 				setItems(res.data)
 				setIsLoading(false)
 			})
