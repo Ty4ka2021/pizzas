@@ -15,6 +15,7 @@ const HomePage = () => {
 	const sortType = useSelector(state => state.filter.sort.sortProperty)
 	const searchValue = useSelector(state => state.filter.searchValue)
 
+
 	const onChangeCategory = (id) => {
 		dispatch(setCategoryId(id))
 	}
@@ -24,6 +25,11 @@ const HomePage = () => {
 	const [isLoading, setIsLoading] = useState(true)
 
 	useEffect(() => {
+		fetchPizzas()
+	}, [categoryId, sortType])
+
+	const fetchPizzas = async () => {
+
 		setIsLoading(true)
 
 		const order = sortType.includes('-') ? 'asc' : 'desc'
@@ -44,17 +50,22 @@ const HomePage = () => {
 		// 		// }, 1000)
 		// 	})
 
-		axios.get('https://64c232d1eb7fd5d6ebcf68ff.mockapi.io/items?${category}&sortBy=${sortBy}&order=${order}')
-			.then(res => {
-				setItems(res.data)
-				setIsLoading(false)
-			})
+		// axios.get('https://64c232d1eb7fd5d6ebcf68ff.mockapi.io/items')
+		// 	.then(res => {
+		// 		setItems(res.data)
+		// 		setIsLoading(false)
+		// 	})
 
+		const res = await axios.get(
+			'https://64c232d1eb7fd5d6ebcf68ff.mockapi.io/items'
+		)
 
-
-
+		setItems(res.data)
+		setIsLoading(false)
 		window.scrollTo(0, 0)
-	}, [categoryId, sortType])
+	}
+
+
 
 
 	const pizzas = items.filter(obj => {
